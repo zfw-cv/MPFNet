@@ -1,7 +1,3 @@
----
-typora-root-url: ./
----
-
 # Self-supervised multi-scale pyramid fusion networks for realistic bokeh effect rendering
 
 **| [Paper](https://www.sciencedirect.com/science/article/abs/pii/S1047320322001110) |**
@@ -10,7 +6,7 @@ If you are interested in my work, you can contact me by **<u>email</u>(zhifengwa
 
 #### Example:
 
-![example](/../../source/images/readme/example.jpg)
+![example](../../source/images/readme/example-1656995214622.jpg)
 
 #### 1、Dataset
 
