@@ -11,9 +11,9 @@ sys.path.insert(1,'PerceptualSimilarity')
 # import models
 import PerceptualSimilarity.models
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-parser.add_argument('-d0','--dir0', type=str, default='./output/demo/')
-parser.add_argument('-d1','--dir1', type=str, default='./test/data-bokehtest' )
 
+parser.add_argument('-d0','--dir0', type=str, default='./output/demo/')
+parser.add_argument('-d1','--dir1', type=str, default='./test/data-bokehtest')
 parser.add_argument('--use_gpu', action='store_true', help='turn on flag to use GPU')
 
 opt = parser.parse_args()
@@ -49,9 +49,6 @@ for file in tqdm(files):
 		total_psnr += compare_psnr(I0,I1)
 		total_ssim += compare_ssim(I0,I1,multichannel=True)
 		count +=1
-		# print("Psnr ={}  avr_Ssim={}".format(total_psnr,total_ssim))
-		# utils.Write_test_perform('./save1.txt', total_psnr/len(files), total_ssim/len(files))
-
 
 print ('Avg LPIPS: ', total_dist/len(files))
 print ('Avg PSNR: ', total_psnr/len(files))

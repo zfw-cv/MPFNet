@@ -20,7 +20,7 @@ import torch.nn.functional as F
 
 from torchvision.utils import save_image
 
-from skimage.measure import compare_psnr,compare_ssim
+from skimage.measure import compare_psnr, compare_ssim
 from tqdm import tqdm
 
 import math
@@ -29,30 +29,29 @@ import sys
 
 import matplotlib.pyplot as plt
 
-
-from multi_scale_bokeh_two import multi_bokeh_two
+from multi_scale_bokeh import multi_bokeh
 
 device = torch.device("cuda:0")
-
 
 feed_width = 1536
 feed_height = 1024
 
+
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
+
 bokehnet = multi_bokeh_two().to(device)
 
-bokehnet.load_state_dict(torch.load('./checkpoints/MPFNet.pth',map_location=device),False)
+bokehnet.load_state_dict(torch.load('./checkpoints/MPFNet.pth', map_location=device), False)
 
 import time
-total_time=0 
+
+total_time = 0
 
 with torch.no_grad():
-    for i in tqdm(range(4400,4694)):
-
+    for i in tqdm(range(4400, 4694)):
         image_path = './Training/original/' + str(i) + '.jpg'
-
 
         input_image = pil.open(image_path).convert('RGB')
         original_width, original_height = input_image.size
@@ -71,15 +70,9 @@ with torch.no_grad():
         bok_pred = bokehnet(input_image)
         total_time += time.time() - start_time
 
-        bok_pred = F.interpolate(bok_pred,(original_height,original_width),mode = 'bilinear')
-        
-        
-        save_image(bok_pred,'./output/result/'+ str(i)+'.png')
+        bok_pred = F.interpolate(bok_pred, (original_height, original_width), mode='bilinear')
 
+        save_image(bok_pred, './output/result/' + str(i) + '.png')
 
         del bok_pred
         del input_image
-    
-
-
-

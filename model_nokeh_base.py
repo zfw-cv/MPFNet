@@ -177,6 +177,3 @@ class multi_bokeh(nn.Module):
         bokeh_image=w1*gen_lv1+w12*gen_lv12+w23+gen_lv23+w3*gen_lv3
 
         return bokeh_image
-
-
-
