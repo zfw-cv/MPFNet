@@ -6,7 +6,7 @@ from model_bokeh_base import multi_bokeh
 
 class multi_bokeh(nn.Module):
     def __init__(self):
-        super(multi_bokeh_two,self).__init__()
+        super(multi_bokeh,self).__init__()
         self.net = multi_bokeh()
  
 

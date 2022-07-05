@@ -4,10 +4,6 @@
 
 If you are interested in my work, you can contact me by **<u>email</u>(zhifengwang686@gmail.com)**, I will check the email regularly. thanks!
 
-### Example:
-
-
-
 ### 1、Dataset
 
 You could get the EBB! dataset by registering [here](https://competitions.codalab.org/competitions/24716).and put it in the train folder.
